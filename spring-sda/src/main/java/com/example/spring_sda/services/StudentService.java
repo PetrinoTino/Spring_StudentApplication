@@ -13,7 +13,6 @@ import java.util.List;
 @Service
 public class StudentService {
 
-
     private StudentRepository studentRepository;
 
     public StudentService(StudentRepository studentRepository) {
@@ -32,7 +31,7 @@ public class StudentService {
         return studentRepository.findById(id).get();
     }
 
-    public void updateStudent(Long id,Student updatedStudent) {
+    public void updateStudent(Long id, Student updatedStudent) {
         Student student = getStudentById(id);
         student.setStudentName(updatedStudent.getStudentName());
         student.setSurname(updatedStudent.getSurname());
@@ -43,7 +42,7 @@ public class StudentService {
     public void deleteStudent(Long id) {
         studentRepository.deleteById(id);
 
-}
+    }
 
     public List<String> getStudentsBySurname(String surname) {
         return studentRepository.findBySurname(surname);
@@ -52,8 +51,7 @@ public class StudentService {
     public List<Student> searchStudentsByName(String name) {
         return studentRepository.searchByName(name);
     }
-
-    public List<Student> getAllPetrinos(){
+    public List<Student> getAllPetrinos() {
         return studentRepository.findAllNamedPetrino();
     }
 }
